@@ -1,1 +1,35 @@
-/* TODO(you): Write the CSS to finish the assignment! */
+.choice-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 10px 0px;
+}
+  
+.choice-grid div {
+    width: 32.5%;
+    margin: 10px 0px;
+    background-color: #f4f4f4;
+    box-sizing: border-box;
+    border: 1px;
+    border-color: #dcdcdc;
+    padding: 10px;
+}
+  
+.choice-grid div img {
+    width: 100%;
+}
+  
+@media (max-width: 700px) {
+    article {
+        width: 95%;
+    }
+    header div span {
+        display: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .choice-grid div {
+        width: 49%;
+    }
+}
