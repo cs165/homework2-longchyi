@@ -11,10 +11,21 @@ const MATCH_LIST = {
 };
 
 function transformTextNodes(node) {
-  // TODO(you): Implement this function! See HW spec for details.
+	if (node.nodeType == Node.TEXT_NODE){
+    	const splitTxt = node.textContent.split(" ");
+    	for (let i = 0; i < splitTxt.length; i ++){
+      		if (MATCH_LIST.hasOwnProperty(splitTxt[i].trim())){
+        		splitTxt[i] = splitTxt[i].replace(splitTxt[i].trim(), MATCH_LIST[splitTxt[i].trim()]);
+      		}
+    	}
+    	node.textContent = splitTxt.join(" ");
+  	}
+  	for (const child of node.childNodes){
+    	transformTextNodes(child);
+  	}
 }
 
 transformTextNodes(document.body);
 
-// Log statement to test that the extension loaded properly.
 console.log('Evil extension loaded!');
+console.log('Extension updated');
